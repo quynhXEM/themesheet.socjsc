@@ -38,15 +38,14 @@ export function checkHasAuthToken() {
   return true;
 }
 
-export function setAuthCredentials(token: string, permissions: any) {
-  console.log(token, permissions);
-  
-  Cookies.set(AUTH_CRED, JSON.stringify({ token, permissions }));
+export function setAuthCredentials(token: string, permissions: any, refresh : string) {
+  Cookies.set(AUTH_CRED, JSON.stringify({ token, permissions, refresh }));
 }
 
 export function getAuthCredentials(context?: any): {
   token: string | null;
   permissions: string[] | null;
+  refresh: string | null;
 } {
   let authCred;
   if (context) {
@@ -57,7 +56,7 @@ export function getAuthCredentials(context?: any): {
   if (authCred) {
     return JSON.parse(authCred);
   }
-  return { token: null, permissions: null };
+  return { token: null, permissions: null, refresh: null };
 }
 
 export function parseSSRCookie(context: any) {

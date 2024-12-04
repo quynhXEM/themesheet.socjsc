@@ -221,13 +221,14 @@ export interface User {
 
 export interface UpdateProfileInput {
   id: string;
-  name: string;
-  profile: {
-    id?: string;
-    bio?: string;
-    contact?: string;
-    avatar?: Attachment | null;
-  };
+  avatar: string;
+  username: string;
+  full_name: string;
+  birthday: string;
+  gender: string; // male / female
+  country_code: string;
+  phone: string;
+  // referrer_id: '30c88ca3-b9b9-4023-bf48-108ced5c42a7';
 }
 
 export interface ChangePasswordInput {

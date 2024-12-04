@@ -186,7 +186,10 @@ class Client {
         with: 'permissions',
       }),
     update: (user: UpdateProfileInput) =>
-      HttpSOC.patch<User>(`${API_ENDPOINTS.USERS}/${API_ENDPOINTS.USERS_ME}`, user),
+      HttpSOC.patch<User>(
+        `${API_ENDPOINTS.USERS}/${API_ENDPOINTS.USERS_ME}`,
+        user,
+      ),
     login: (input: LoginUserInput) =>
       HttpSOC.post<AuthResponse>(API_ENDPOINTS.USERS_LOGIN, input),
     register: (input: RegisterUserInput) =>
@@ -211,7 +214,7 @@ class Client {
         API_ENDPOINTS.USERS_CHANGE_PASSWORD,
         input,
       ),
-    logout: () => HttpClient.post<boolean>(API_ENDPOINTS.USERS_LOGOUT, {}),
+    logout: (data : unknown) => HttpSOC.post<boolean>(API_ENDPOINTS.USERS_LOGOUT, data),
   };
   questions = {
     all: ({ question, ...params }: QuestionQueryOptions) =>
@@ -310,7 +313,8 @@ class Client {
   };
   settings = {
     all: (params?: SettingsQueryOptions) =>
-      HttpClient.get<Settings>(API_ENDPOINTS.SETTINGS, { ...params }),
+      // HttpClient.get<Settings>(API_ENDPOINTS.SETTINGS, { ...params }),
+      config,
     contactUs: (input: CreateContactUsInput) =>
       HttpClient.post<any>(API_ENDPOINTS.SETTINGS_CONTACT_US, input),
     upload: (input: File[]) => {
@@ -386,3 +390,174 @@ class Client {
 }
 
 export default new Client();
+
+const config = {
+  isProductReview: false,
+  useGoogleMap: false,
+  enableTerms: true,
+  seo: {
+    ogImage: null,
+    ogTitle: null,
+    metaTags: null,
+    metaTitle: null,
+    canonicalUrl: null,
+    ogDescription: null,
+    twitterHandle: null,
+    metaDescription: null,
+    twitterCardType: null,
+  },
+  logo: {
+    id: 935,
+    original:
+      'https://pixarlaravel.s3.ap-southeast-1.amazonaws.com/931/pixer_dark.png',
+    thumbnail:
+      'https://pixarlaravel.s3.ap-southeast-1.amazonaws.com/931/conversions/pixer_dark-thumbnail.jpg',
+    file_name: 'Logo-new.png',
+  },
+  collapseLogo: {
+    thumbnail:
+      'https://pixarlaravel.s3.ap-southeast-1.amazonaws.com/900/conversions/pixer-collapse-logo-thumbnail.jpg',
+    original:
+      'https://pixarlaravel.s3.ap-southeast-1.amazonaws.com/900/pixer-collapse-logo.png',
+    id: 909,
+    file_name: 'pixer-collapse-logo.png',
+  },
+  dark_logo: {
+    id: 936,
+    original:
+      'https://pixarlaravel.s3.ap-southeast-1.amazonaws.com/932/pixer_light.png',
+    thumbnail:
+      'https://pixarlaravel.s3.ap-southeast-1.amazonaws.com/932/conversions/pixer_light-thumbnail.jpg',
+  },
+  siteTitle: 'Pixer',
+  siteSubtitle: 'Your next ecommerce',
+  currency: 'USD',
+  taxClass: '1',
+  signupPoints: 100,
+  shippingClass: '1',
+  contactDetails: {
+    contact: '+129290122122',
+    socials: [
+      {
+        url: 'https://www.facebook.com/redqinc',
+        icon: 'FacebookIcon',
+      },
+      {
+        url: 'https://twitter.com/RedqTeam',
+        icon: 'TwitterIcon',
+      },
+      {
+        url: 'https://www.instagram.com/redqteam',
+        icon: 'InstagramIcon',
+      },
+    ],
+    website: 'https://redq.io',
+    emailAddress: 'demo@demo.com',
+    location: {
+      lat: 42.9585979,
+      lng: -76.9087202,
+      zip: null,
+      city: null,
+      state: 'NY',
+      country: 'United States',
+      formattedAddress: 'NY State Thruway, New York, USA',
+    },
+  },
+  paymentGateway: [
+    {
+      name: 'stripe',
+      title: 'Stripe',
+    },
+  ],
+  currencyOptions: {
+    formation: 'en-US',
+    fractions: 2,
+  },
+  useEnableGateway: true,
+  useCashOnDelivery: true,
+  freeShippingAmount: 0,
+  minimumOrderAmount: 0,
+  useMustVerifyEmail: false,
+  maximumQuestionLimit: 5,
+  currencyToWalletRatio: 3,
+  defaultPaymentGateway: 'stripe',
+  StripeCardOnly: false,
+  server_info: {
+    upload_max_filesize: 2048,
+    memory_limit: '128M',
+    max_execution_time: 30,
+    max_input_time: -1,
+    post_max_size: 8192,
+  },
+  useAi: false,
+  defaultAi: 'openai',
+  siteLink: 'https://pixer.redq.io',
+  copyrightText: 'Copyright © REDQ. All rights reserved worldwide.',
+  externalText: 'REDQ',
+  externalLink: 'https://redq.io',
+  smsEvent: {
+    admin: {
+      statusChangeOrder: true,
+    },
+    vendor: {
+      statusChangeOrder: true,
+    },
+    customer: {
+      statusChangeOrder: true,
+    },
+    all: [],
+  },
+  emailEvent: {
+    admin: {
+      statusChangeOrder: true,
+    },
+    vendor: {
+      statusChangeOrder: true,
+    },
+    customer: {
+      statusChangeOrder: true,
+    },
+    all: [],
+  },
+  pushNotification: {
+    admin: [],
+    vendor: [],
+    customer: [],
+    all: {
+      order: true,
+    },
+  },
+  isUnderMaintenance: false,
+  maintenance: {
+    title: 'Site is under Maintenance',
+    buttonTitleOne: 'Notify Me',
+    newsLetterTitle: 'Subscribe Newsletter',
+    buttonTitleTwo: 'Contact Us',
+    contactUsTitle: 'Contact Us',
+    aboutUsTitle: 'About Us',
+    isOverlayColor: false,
+    overlayColor: null,
+    overlayColorRange: null,
+    description:
+      'We are currently undergoing essential maintenance to elevate your browsing experience. Our team is working diligently to implement improvements that will bring you an even more seamless and enjoyable interaction with our site. During this period, you may experience temporary inconveniences. We appreciate your patience and understanding. Thank you for being a part of our community, and we look forward to unveiling the enhanced features and content soon.',
+    newsLetterDescription:
+      'Stay in the loop! Subscribe to our newsletter for exclusive deals and the latest trends delivered straight to your inbox. Elevate your shopping experience with insider access.',
+    aboutUsDescription:
+      'Welcome to Pixer, your go-to destination for curated excellence. Discover a fusion of style, quality, and affordability in every click. Join our community and elevate your shopping experience with us!',
+    image: {
+      id: 1794,
+      file_name: 'background.png',
+      original:
+        'https://pickbazarlaravel.s3.ap-southeast-1.amazonaws.com/1792/background.png',
+      thumbnail:
+        'https://pickbazarlaravel.s3.ap-southeast-1.amazonaws.com/1792/conversions/background-thumbnail.jpg',
+    },
+    start: '2023-12-18T16:07:05.559989Z',
+    until: '2023-12-18T16:07:05.559996Z',
+  },
+  app_settings: {
+    last_checking_time: '2023-11-18T16:53:50.405273Z',
+    trust: true,
+  },
+  maxShopDistance: null,
+};

@@ -13,6 +13,7 @@ import {
 
 export function useMe() {
   const { isAuthorized } = useAuth();
+  
   const { data, isLoading, error } = useQuery<User, Error>(
     [`${API_ENDPOINTS.USERS}/${API_ENDPOINTS.USERS_ME}`],
     client.users.me,
@@ -42,6 +43,7 @@ export function useLogout() {
         Cookies.remove(AUTH_CRED);
         Cookies.remove(TOKEN);
       }
+      
     },
   });
 }

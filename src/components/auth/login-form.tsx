@@ -30,7 +30,7 @@ export default function LoginUserForm() {
         className: '-mt-10 xs:mt-0',
       });
       authorize(data?.access_token);
-      setAuthCredentials(data?.access_token, ['customer']);
+      setAuthCredentials(data?.access_token, ['customer'], data?.refresh_token);
       closeModal();
     },
     onError() {
