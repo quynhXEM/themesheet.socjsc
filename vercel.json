@@ -1,0 +1,32 @@
+{
+  "env": {
+    "NEXT_PUBLIC_REST_API_ENDPOINT": "your_api_endpoint",
+    "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY": "your_stripe_key",
+    "NEXT_PUBLIC_PAYPAL_CLIENT_TOKEN": "your_paypal_client",
+    "NEXT_PUBLIC_WEBSITE_URL": "https://pixer-react-shop.vercel.app/",
+    "NEXT_PUBLIC_ADMIN_URL": "https://pixer-react-admin.vercel.app",
+    "NEXT_PUBLIC_SHOP_URL": "",
+    "NEXT_PUBLIC_GOOGLE_MAP_API_KEY": "",
+    "NEXT_PUBLIC_AUTH_TOKEN_KEY": "AUTH_CRED",
+    "APPLICATION_MODE": "production",
+    "NEXT_PUBLIC_DEFAULT_LANGUAGE": "en",
+    "NEXT_PUBLIC_ENABLE_MULTI_LANG": "false",
+    "NEXT_PUBLIC_AVAILABLE_LANGUAGES": "en"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_REST_API_ENDPOINT": "your_api_endpoint",
+      "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY": "your_stripe_key",
+      "NEXT_PUBLIC_PAYPAL_CLIENT_TOKEN": "your_paypal_client",
+      "NEXT_PUBLIC_WEBSITE_URL": "https://pixer-react-shop.vercel.app/",
+      "NEXT_PUBLIC_ADMIN_URL": "https://pixer-react-admin.vercel.app",
+      "NEXT_PUBLIC_SHOP_URL": "",
+      "NEXT_PUBLIC_GOOGLE_MAP_API_KEY": "",
+      "NEXT_PUBLIC_AUTH_TOKEN_KEY": "AUTH_CRED",
+      "APPLICATION_MODE": "production",
+      "NEXT_PUBLIC_DEFAULT_LANGUAGE": "en",
+      "NEXT_PUBLIC_ENABLE_MULTI_LANG": "false",
+      "NEXT_PUBLIC_AVAILABLE_LANGUAGES": "en"
+    }
+  }
+}
